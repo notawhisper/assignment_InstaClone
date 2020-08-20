@@ -4,6 +4,6 @@ module SessionsHelper
   end
 
   def logged_in?
-    current_user.present?    ユーザーがログインしていればtrue、その他ならfalseを返す
+    current_user.present?
   end
 end
