@@ -1,5 +1,7 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
+  before_action :access_controll, only: [:edit, :update, :destroy]
+  before_action :exclude_stranger
 
   # GET /pictures
   # GET /pictures.json

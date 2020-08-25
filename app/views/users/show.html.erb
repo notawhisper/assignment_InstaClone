@@ -21,5 +21,5 @@
   <%= @user.password_digest %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Edit', edit_user_path(@user), style: "#{'display:none' unless @user.id == current_user.id}" %> |
 <%= link_to 'Back', pictures_path %>

@@ -1,5 +1,7 @@
-<% @favorites.each  do |favorite| %>
-  <%= image_tag favorite.image.url %>
-  <%= favorite.text %>
-  <%= favorite.user.name %>
+<% @favorite_pictures.each  do |target| %>
+  <%= image_tag target.image.url %>
+  <%= target.text %>
+  <%= target.user.name %>
+  <%= link_to 'お気に入り解除する', favorite_path(id: current_user.favorites.find_by(picture_id: target.id).id),
+                                   method: :delete, class: 'btn btn-danger' %>
 <% end %>

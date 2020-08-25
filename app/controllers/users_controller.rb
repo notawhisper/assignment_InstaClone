@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :access_controll, only: [:show, :edit, :update, :destroy]
+  before_action :exclude_stranger, except: [:new, :create]
 
   # GET /users
   # GET /users.json
@@ -48,7 +50,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to_root, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
