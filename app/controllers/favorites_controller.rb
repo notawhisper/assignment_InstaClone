@@ -12,6 +12,10 @@ class FavoritesController < ApplicationController
 
   def destroy
     favorite = current_user.favorites.find_by(id: params[:id]).destroy
-    redirect_to pictures_url, notice: "お気に入りから解除しました"
+    if request.referrer.include?('favorites')
+      redirect_to favorites_path, notice: "お気に入りから解除しました"
+    else
+      redirect_to pictures_url, notice: "お気に入りから解除しました"
+    end
   end
 end
