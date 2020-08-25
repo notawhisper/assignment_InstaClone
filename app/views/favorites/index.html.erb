@@ -1,0 +1,5 @@
+<% @favorites.each  do |favorite| %>
+  <%= image_tag favorite.image.url %>
+  <%= favorite.text %>
+  <%= favorite.user.name %>
+<% end %>

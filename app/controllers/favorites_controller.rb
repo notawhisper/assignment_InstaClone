@@ -1,4 +1,10 @@
 class FavoritesController < ApplicationController
+
+  def index
+    @favorites = current_user.favorite_pictures
+  end
+
+
   def create
     favorite = current_user.favorites.create(picture_id: params[:picture_id])
     redirect_to pictures_url, notice: "お気に入りに登録しました"
