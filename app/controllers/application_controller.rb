@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
     else
     end
   end
+
+  def exclude_stranger
+    unless logged_in?
+      flash[:notice] = "ログインしてください。"
+      redirect_to new_user_path
+    end
+  end
 end
