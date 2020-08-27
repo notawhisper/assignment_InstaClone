@@ -25,7 +25,11 @@
                   </svg>
                 <% end %>
               </li>
-              <li class="nav-item col-md-1"><%= link_to image_tag(current_user.image.thumb.url), user_path(current_user.id) ,class:"links"%></li>
+              <% if current_user.image && current_user.image.url %>
+                <li class="nav-item col-md-1"><%= link_to image_tag(current_user.image.thumb.url), user_path(current_user.id) ,class:"links"%></li>
+              <% else %>
+                <li class="nav-item col-md-1"><%= link_to image_tag("default.png", :size => "30x30"), user_path(current_user.id) ,class:"links"%>
+              <% end %>
             <% else %>
               <li class="nav-item col-md-1"><%= link_to "Login", new_session_path  ,class:"links"%></li>
               <li class="nav-item col-md-1"><%= link_to "Sign up", new_user_path  ,class:"links"%></li>

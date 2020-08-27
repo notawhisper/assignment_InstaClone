@@ -7,6 +7,8 @@
     <p>
       <% if @user.image? %>
         <%= image_tag @user.image.profile.url, class:"profile_image"%>
+      <% else %>
+        <%= image_tag "default.png", :size => "200x200", class:"profile_image" %>
       <% end %>
     </p>
 
