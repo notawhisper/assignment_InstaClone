@@ -1,1 +1,18 @@
+.pictures_bg {
+  min-height: 100vh;
+  background-image: image-url('pictures_bg.png');
+  display:flex;
+  align-items:center;
+}
 
+.pictures_contents_wrapper {
+  margin: 0 auto;
+  width: 60vh;
+  min-height: 55vh;
+  background-color: white;
+}
+
+.field p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

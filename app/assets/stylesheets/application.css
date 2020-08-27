@@ -38,6 +38,8 @@ body {
 }
 
 
+
+
 .nav {
   height: 75px;
   padding: 0;
@@ -56,9 +58,6 @@ a img {
 
 #links .nav-item {
   float: right;
-}
-
-.nav-item .links {
 }
 
 .yield_wrapper {
