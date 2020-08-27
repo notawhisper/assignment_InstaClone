@@ -54,6 +54,7 @@ a img {
   text-align: center;
   float: right;
   margin: 0;
+  padding-right: 30px;
 }
 
 #links .nav-item {
