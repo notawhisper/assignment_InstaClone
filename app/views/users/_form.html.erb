@@ -19,7 +19,9 @@
 
   <div class="form_for_signup">
     <p><%= f.label :image %></p>
-    <%= image_tag(@user.image.profile.url) if @user.image && @user.image.url %>
+    <% if @user.image && @user.image.url %>
+      <%= image_tag @user.image.profile.url, class:"profile_image"%>
+    <% end %>
     <%= f.hidden_field :image_cache %>
     <%= f.file_field :image %>
   </div>

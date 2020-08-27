@@ -1,6 +1,9 @@
-<h1>Editing User</h1>
+<div class="users_bg">
+  <div class="users_contents_wrapper">
+    <h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+    <%= render 'form', user: @user%>
 
-<%= link_to 'Show', @user %>
-<%= link_to 'Back', users_path %>
+    <%= link_to 'Back', @user, class:"btn btn-secondary" %>
+  </div>
+</div>
