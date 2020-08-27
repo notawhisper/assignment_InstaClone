@@ -1,7 +1,18 @@
-<% @favorite_pictures.each  do |target| %>
-  <%= image_tag target.image.url %>
-  <%= target.text %>
-  <%= target.user.name %>
-  <%= link_to 'お気に入り解除する', favorite_path(id: current_user.favorites.find_by(picture_id: target.id).id),
-                                   method: :delete, class: 'btn btn-danger' %>
-<% end %>
+<dib class="pictures_bg">
+  <dib class="pictures_contents_wrapper">
+    <h1>My Favorites</h1>
+    <% @favorite_pictures.each  do |target| %>
+      <%= image_tag target.image.picture_for_index.url%>
+      <div class="text_wrapper_for_index">
+        <p><%= target.text %></p>
+      </div>
+      <p>Posted By: <%= target.user.name %></p>
+      <%= link_to favorite_path(id: current_user.favorites.find_by(picture_id: target.id).id),
+                                       method: :delete, class: 'btn btn-light' do %>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-heart-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+        </svg>
+      <% end %>
+    <% end %>
+  </dib>
+</dib>
