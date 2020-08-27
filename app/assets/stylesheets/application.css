@@ -14,3 +14,42 @@
  *= require_tree .
  *= require_self
  */
+html {
+  width: 100%;
+}
+
+body {
+  width: 100%;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.link-wrapper {
+  height: 75px;
+}
+
+
+.nav {
+  height: 75px;
+  padding: 0;
+}
+
+
+a img {
+  border-radius: 50%;
+}
+
+#links {
+  text-align: center;
+  float: right;
+  margin: 0;
+}
+
+#links .nav-item {
+  float: right;
+}
+
+.nav-item .links {
+}
