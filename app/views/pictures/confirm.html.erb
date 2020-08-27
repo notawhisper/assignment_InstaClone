@@ -1,10 +1,12 @@
-<%= form_with(model: picture, local: true, url: choose_new_or_edit) do |form| %>
-  <% if picture.errors.any? %>
+<h1>Are you sure to share?</h1>
+
+<%= form_with(model: @picture, local: true) do |form| %>
+  <% if @picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
 
       <ul>
-      <% picture.errors.full_messages.each do |message| %>
+      <% @picture.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,25 +15,26 @@
 
   <div class="field">
     <p><%= form.label :image %></p>
-    <%= image_tag(picture.image.picture_for_show.url) if picture.image && picture.image.url %>
+    <%= image_tag(@picture.image.picture_for_show.url) if @picture.image && @picture.image.url %>
     <br><br>
-    <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="field">
     <p><%= form.label :text %></p>
-    <%= form.text_area :text, class:"text_field"%>
+    <p><%= @picture.text %></p>
+    <%= form.hidden_field :text, class:"text_field"%>
   </div>
 
   <br>
 
   <div class="field">
     <%= form.hidden_field :user_id %>
-    <%= form.hidden_field :id %>
   </div>
 
   <div class="actions">
     <%= form.submit "SHARE", class: "btn btn-secondary" %>
+    <br>
+    <%= form.submit "戻る", name: 'back', class: "btn btn-secondary" %>
   </div>
 <% end %>
