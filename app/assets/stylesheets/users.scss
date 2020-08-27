@@ -1,0 +1,20 @@
+.signup_wrapper {
+  min-height: 100vh;
+  background-image: image-url('root_bg.jpg');
+  display:flex;
+  align-items:center;
+}
+
+
+.form_for_signup_wrapper {
+  margin: 0 auto;
+  width: 40vh;
+  min-height: 55vh;
+  background-color: white;
+}
+
+
+.form_for_signup p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

@@ -1,16 +1,20 @@
-<h1>Sign up</h1>
+<div class="signup_wrapper">
+  <div class="form_for_signup_wrapper">
+    <h1>Sign up</h1>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
+    <!-- <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this <%= @user.name %> from being saved:</h2>
 
-    <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %> -->
+
+
+    <%= render 'form', user: @user %>
   </div>
-<% end %>
-
-
-<%= render 'form', user: @user %>
+</div>
