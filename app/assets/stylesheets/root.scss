@@ -1,0 +1,37 @@
+.root_wrapper {
+  min-height: 100vh;
+  background-image: image-url('root_bg.jpg');
+  display:flex;
+  align-items:center;
+}
+
+.entrance_wrapper {
+  margin: 0 auto;
+  width: 40vh;
+  height: 50vh;
+  background-color: white;
+}
+
+.entrance_wrapper h1{
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.entrance_wrapper p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.form {
+  border: solid 1px;
+  border-radius: 1%;
+  background-color: rgb(250, 250, 250);
+}
+
+.or {
+  margin-top: 40px;
+  font-weight: bold;
+}

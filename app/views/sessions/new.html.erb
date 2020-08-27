@@ -1,11 +1,18 @@
-<h1>Log in</h1>
-
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Log in" %>
-<% end %>
+<div class="root_wrapper ">
+  <div class="entrance_wrapper text-center">
+    <h1>PicUp</h1>
+    <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+      <p><%= f.label :email %></p>
+      <%= f.email_field :email , class:"form" %>
+      <br>
+      <p><%= f.label :password %></p>
+      <%= f.password_field :password, class:"form" %>
+      <br>
+      <br>
+      <%= f.submit "Log in", class:"btn btn-secondary" %>
+    <% end %>
+    <p class="or">or</p>
+    <br>
+    <%= link_to "Sign up", new_user_path ,class:"btn btn-secondary"%>
+  </div>
+</div>
