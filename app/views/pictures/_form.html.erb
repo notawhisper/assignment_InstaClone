@@ -13,14 +13,14 @@
 
   <div class="field">
     <p><%= form.label :image %></p>
-    <%= image_tag(picture.image.thumb.url) if picture.image && picture.image.url %>
-    <%= image_tag(picture.image.profile.url) if picture.image && picture.image.url %>
+    <%= image_tag(picture.image.picture_for_show.url) if picture.image && picture.image.url %>
+    <br><br>
     <%= form.file_field :image %>
   </div>
 
   <div class="field">
     <p><%= form.label :text %></p>
-    <%= form.text_area :text %>
+    <%= form.text_area :text, class:"text_field"%>
   </div>
 
   <br>
@@ -30,6 +30,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit "share", class: "btn btn-secondary" %>
+    <%= form.submit "SHARE", class: "btn btn-secondary" %>
   </div>
 <% end %>
