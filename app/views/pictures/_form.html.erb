@@ -1,4 +1,4 @@
-<%= form_with(model: picture, local: true) do |form| %>
+<%= form_with(model: picture, local: true, url: choose_new_or_edit) do |form| %>
   <% if picture.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
@@ -12,21 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(picture.image.url) if picture.image && picture.image.url %>
+    <p><%= form.label :image %></p>
+    <%= image_tag(picture.image.picture_for_show.url) if picture.image && picture.image.url %>
+    <br><br>
     <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
   <div class="field">
-    <%= form.label :text %>
-    <%= form.text_area :text %>
+    <p><%= form.label :text %></p>
+    <%= form.text_area :text, class:"text_field"%>
   </div>
+
+  <br>
 
   <div class="field">
     <%= form.hidden_field :user_id %>
+    <%= form.hidden_field :id %>
   </div>
 
   <div class="actions">
-    <%= form.submit "share"%>
+    <%= form.submit "SHARE", class: "btn btn-secondary" %>
   </div>
 <% end %>

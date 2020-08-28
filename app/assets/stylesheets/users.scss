@@ -1,0 +1,29 @@
+.users_bg {
+  min-height: 100vh;
+  background-image: image-url('root_bg.jpg');
+  display:flex;
+  align-items:center;
+}
+
+.users_contents_wrapper {
+  margin: 0 auto;
+  width: 40vh;
+  min-height: 55vh;
+  background-color: white;
+}
+
+.form_for_signup p {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.profile_image {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
+
+.profile_text {
+  font-size: 20px;
+}

@@ -1,25 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="users_bg">
+  <div class="users_contents_wrapper">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <% if @user.image? %>
-    <%= image_tag @user.image.url %>
-  <% end %>
-</p>
+    <h1>My Profile</h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <p>
+      <% if @user.image? %>
+        <%= image_tag @user.image.profile.url, class:"profile_image"%>
+      <% else %>
+        <%= image_tag "default.png", :size => "200x200", class:"profile_image" %>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p class="profile_text">
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+    <p class="profile_text">
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
 
-<%= link_to 'Edit', edit_user_path(@user), style: "#{'display:none' unless @user.id == current_user.id}" %> |
-<%= link_to 'Back', pictures_path %>
+    <%= link_to 'Edit', edit_user_path(@user), style: "#{'display:none' unless @user.id == current_user.id}", class:"btn btn-secondary" %>
+    <br>
+    <%= link_to 'Back', request.referrer, class:"btn btn-secondary" %>
+  </div>
+</div>

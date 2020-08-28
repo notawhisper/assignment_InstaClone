@@ -29,15 +29,14 @@ class PicturesController < ApplicationController
   def create
     @picture = Picture.new(picture_params)
     @picture.user_id = current_user.id
-
-    respond_to do |format|
+    if params[:back]
+      render :new
+    else
       if @picture.save
         PictureMailer.picture_mail(@picture).deliver
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
+        redirect_to @picture, notice: 'Picture was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+        render :new
       end
     end
   end
@@ -54,6 +53,10 @@ class PicturesController < ApplicationController
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirm
+    @picture = Picture.new(picture_params)
   end
 
   # DELETE /pictures/1
@@ -74,6 +77,6 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:image, :text, :user_id)
+      params.require(:picture).permit(:image, :text, :user_id, :image_cache)
     end
 end

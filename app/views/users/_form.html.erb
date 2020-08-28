@@ -1,9 +1,10 @@
+
 <%= form_with(model: user, local: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
+      <ul class="text-left">
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
@@ -11,22 +12,36 @@
     </div>
   <% end %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form_for_signup">
+    <p><%= f.label :name %></p>
+    <%= f.text_field :name , class:"form"%>
+  </div>
 
-  <%= f.label :image %>
-  <%= image_tag(@user.image.url) if @user.image && @user.image.url %>
-  <%= f.hidden_field :image_cache %>
-  <%= f.file_field :image %>
+  <div class="form_for_signup">
+    <p><%= f.label :image %></p>
+    <% if @user.image && @user.image.url %>
+      <%= image_tag @user.image.profile.url, class:"profile_image"%>
+    <% else %>
+      <%= image_tag "default.png", :size => "200x200", class:"profile_image"%>
+    <% end %>
+    <%= f.hidden_field :image_cache %>
+    <%= f.file_field :image %>
+  </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <div class="form_for_signup">
+    <p><%= f.label :email %></p>
+    <%= f.email_field :email , class:"form"%>
+  </div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <div class="form_for_signup">
+    <p><%= f.label :password %></p>
+    <%= f.password_field :password , class:"form"%>
+  </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Submit" %>
+  <div class="form_for_signup">
+    <p><%= f.label :password_confirmation %></p>
+    <%= f.password_field :password_confirmation , class:"form"%>
+  </div>
+  <br>
+  <%= f.submit "Submit", class:"btn btn-secondary" %>
 <% end %>
