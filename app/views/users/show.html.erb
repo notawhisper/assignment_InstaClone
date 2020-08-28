@@ -2,7 +2,7 @@
   <div class="users_contents_wrapper">
     <p id="notice"><%= notice %></p>
 
-    <h1>My Profile</h1>
+    <h1>Profile</h1>
 
     <p>
       <% if @user.image? %>
@@ -17,13 +17,16 @@
       <%= @user.name %>
     </p>
 
-    <p class="profile_text">
-      <strong>Email:</strong>
-      <%= @user.email %>
-    </p>
+    <% if @user.id == current_user.id %>
+      <p class="profile_text">
+        <strong>Email:</strong>
+        <%= @user.email%>
+      </p>
+    <% end %>
 
     <%= link_to 'Edit', edit_user_path(@user), style: "#{'display:none' unless @user.id == current_user.id}", class:"btn btn-secondary" %>
     <br>
     <%= link_to 'Back', request.referrer, class:"btn btn-secondary" %>
+    <%= link_to 'Destroy', user_path(@user), method: :delete, style: "#{'display:none' unless @user.id == current_user.id}", class:"btn btn-danger" %>
   </div>
 </div>
