@@ -19,13 +19,12 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(picture_params)
-    @picture.user_id = current_user.id
+    @picture = current_user.pictures.new(picture_params)
     if params[:back]
       render :new
     else
       if @picture.save
-        # PictureMailer.picture_mail(@picture).deliver
+        PictureMailer.picture_mail(@picture).deliver
         redirect_to @picture, notice: '投稿されました.'
       else
         render :new
