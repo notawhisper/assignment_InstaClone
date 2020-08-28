@@ -41,8 +41,12 @@ body {
 
 
 .nav {
-  height: 75px;
+  height: 50px;
   padding: 0;
+}
+
+.nav-item h1 {
+  font-family: "Pacific";
 }
 
 

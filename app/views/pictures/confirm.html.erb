@@ -1,40 +1,44 @@
-<h1>Are you sure to share?</h1>
+<div class="pictures_bg">
+  <div class="pictures_contents_wrapper">
+    <h1>Are you sure to share?</h1>
 
-<%= form_with(model: @picture, local: true) do |form| %>
-  <% if @picture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+    <%= form_with(model: @picture, local: true) do |form| %>
+      <% if @picture.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
 
-      <ul>
-      <% @picture.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% @picture.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <p><%= form.label :image %></p>
-    <%= image_tag(@picture.image.picture_for_show.url) if @picture.image && @picture.image.url %>
-    <br><br>
-    <%= form.hidden_field :image_cache %>
+      <div class="field">
+        <p><%= form.label :image %></p>
+        <%= image_tag(@picture.image.picture_for_show.url) if @picture.image && @picture.image.url %>
+        <br><br>
+        <%= form.hidden_field :image_cache %>
+      </div>
+
+      <div class="field">
+        <p><%= form.label :text %></p>
+        <p><%= @picture.text %></p>
+        <%= form.hidden_field :text, class:"text_field"%>
+      </div>
+
+      <br>
+
+      <div class="field">
+        <%= form.hidden_field :user_id %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "SHARE", class: "btn btn-secondary" %>
+        <br>
+        <%= form.submit "戻る", name: 'back', class: "btn btn-secondary" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <p><%= form.label :text %></p>
-    <p><%= @picture.text %></p>
-    <%= form.hidden_field :text, class:"text_field"%>
-  </div>
-
-  <br>
-
-  <div class="field">
-    <%= form.hidden_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "SHARE", class: "btn btn-secondary" %>
-    <br>
-    <%= form.submit "戻る", name: 'back', class: "btn btn-secondary" %>
-  </div>
-<% end %>
+</div>
