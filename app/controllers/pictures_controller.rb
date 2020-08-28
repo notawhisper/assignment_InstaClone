@@ -24,7 +24,7 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
-        PictureMailer.picture_mail(@picture).deliver
+        PictureMailer.picture_mail(@picture).deliver_now
         redirect_to @picture, notice: '投稿されました.'
       else
         render :new
