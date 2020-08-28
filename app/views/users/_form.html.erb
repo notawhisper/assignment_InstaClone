@@ -1,4 +1,3 @@
-
 <%= form_with(model: user, local: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -19,11 +18,13 @@
 
   <div class="form_for_signup">
     <p><%= f.label :image %></p>
+
     <% if @user.image && @user.image.url %>
       <%= image_tag @user.image.profile.url, class:"profile_image"%>
     <% else %>
       <%= image_tag "default.png", :size => "200x200", class:"profile_image"%>
     <% end %>
+
     <%= f.hidden_field :image_cache %>
     <%= f.file_field :image %>
   </div>
