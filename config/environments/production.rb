@@ -81,7 +81,7 @@ Rails.application.configure do
 #     enable_starttls_auto: true
 # }
 
-  config.action_mailer.default_url_options = {  'https://rocky-forest-95710.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'https://rocky-forest-95710.herokuapp.com/' }
   ActionMailer::Base.delivery_method = :letter_opener
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
